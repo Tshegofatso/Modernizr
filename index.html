@@ -1,0 +1,188 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>BosoStudios Modernizer</title>
+  <meta name="description" content="Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">BosoStudios Modernizer</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/Tshegofatso/Modernizr/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/Tshegofatso/Modernizr/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/Tshegofatso/Modernizr" class="code">View BosoStudios Modernizer on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a name="modernizr-" class="anchor" href="#modernizr-"><span class="octicon octicon-link"></span></a>Modernizr <a href="http://travis-ci.org/Modernizr/Modernizr"><img src="http://img.shields.io/travis/Modernizr/Modernizr/master.svg" alt="Build Status"></a>
+</h1>
+
+<h5>
+<a name="modernizr-is-a-javascript-library-that-detects-html5-and-css3-features-in-the-users-browser" class="anchor" href="#modernizr-is-a-javascript-library-that-detects-html5-and-css3-features-in-the-users-browser"><span class="octicon octicon-link"></span></a>Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.</h5>
+
+<ul>
+<li><a href="http://www.modernizr.com">Website</a></li>
+<li><a href="http://www.modernizr.com/docs/">Documentation</a></li>
+</ul><p>Modernizr tests which native CSS3 and HTML5 features are available in the current UA and makes the results available to you in two ways: as properties on a global <code>Modernizr</code> object, and as classes on the <code>&lt;html&gt;</code> element. This information allows you to progressively enhance your pages with a granular level of control over the experience.</p>
+
+<h2>
+<a name="new-asynchronous-event-listeners" class="anchor" href="#new-asynchronous-event-listeners"><span class="octicon octicon-link"></span></a>New Asynchronous Event Listeners</h2>
+
+<p>Often times people want to know when an asynchronous test is done so they can allow their application to react to it.
+In the past, you've had to rely on watching properties or <code>&lt;html&gt;</code> classes. Only events on <strong>asynchronous</strong> tests are
+supported. Synchronous tests should be handled synchronously for improved speed and to maintain consistency.</p>
+
+<p>The new api looks like this:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// Listen to a test, give it a callback</span>
+<span class="nx">Modernizr</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'testname'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">result</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'The test passed!'</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'The test failed!'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>We guarantee that we'll only invoke your function once (per time that you call <code>on</code>). We are currently not exposing
+a method for exposing the <code>trigger</code> functionality. Instead, if you'd like to have control over async tests, use the
+<code>src/addTest</code> feature, and any test that you set will automatically expose and trigger the <code>on</code> functionality.</p>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<ul>
+<li>Clone or download the repository</li>
+<li>Install project dependencies with <code>npm install</code>
+</li>
+</ul><h2>
+<a name="test-suite" class="anchor" href="#test-suite"><span class="octicon octicon-link"></span></a>Test suite</h2>
+
+<p>Run the <a href="http://modernizr.github.com/Modernizr/test/">test suite</a></p>
+
+<h2>
+<a name="building-modernizr-v3" class="anchor" href="#building-modernizr-v3"><span class="octicon octicon-link"></span></a>Building Modernizr v3</h2>
+
+<h3>
+<a name="to-generate-everything-in-config-alljson" class="anchor" href="#to-generate-everything-in-config-alljson"><span class="octicon octicon-link"></span></a>To generate everything in 'config-all.json':</h3>
+
+<div class="highlight highlight-js"><pre><span class="nx">npm</span> <span class="nx">install</span>
+<span class="nx">grunt</span> <span class="nx">build</span>
+<span class="c1">//outputs to ./dist/modernizr-build.js</span>
+</pre></div>
+
+<h3>
+<a name="to-run-tests-in-phantom" class="anchor" href="#to-run-tests-in-phantom"><span class="octicon octicon-link"></span></a>To run tests (in phantom):</h3>
+
+<div class="highlight highlight-js"><pre><span class="nx">grunt</span> <span class="nx">test</span>
+</pre></div>
+
+<h3>
+<a name="to-run-tests-in-browser" class="anchor" href="#to-run-tests-in-browser"><span class="octicon octicon-link"></span></a>To run tests (in browser):</h3>
+
+<pre lang="shell"><code>grunt build
+serve .
+visit &lt;url&gt;/test
+</code></pre>
+
+<h3>
+<a name="to-see-simple-build-in-browser" class="anchor" href="#to-see-simple-build-in-browser"><span class="octicon octicon-link"></span></a>To see simple build in browser:</h3>
+
+<p>serve the root dir, <code>&lt;url&gt;/test/modular.html</code></p>
+
+<h3>
+<a name="to-see-the-build-tool" class="anchor" href="#to-see-the-build-tool"><span class="octicon octicon-link"></span></a>To see the build tool:</h3>
+
+<ul>
+<li>checkout the modernizr.com code</li>
+<li>install all your gems and bundles and jekyll and shit</li>
+<li><code>jekyll</code></li>
+<li><code>serve ./_sites</code></li>
+<li>visit /download</li>
+<li>It should be just a big list of things you can build with no frills.</li>
+</ul><h3>
+<a name="api-reference" class="anchor" href="#api-reference"><span class="octicon octicon-link"></span></a>API Reference</h3>
+
+<p>Modernizr can be used programmatically via npm:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">modernizr</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"modernizr"</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="building" class="anchor" href="#building"><span class="octicon octicon-link"></span></a>Building</h4>
+
+<p>A <code>build</code> method is exposed for generating custom Modernizr builds. Example:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">modernizr</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"modernizr"</span><span class="p">);</span>
+
+<span class="nx">modernizr</span><span class="p">.</span><span class="nx">build</span><span class="p">({},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span> <span class="c1">// full source</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">min</span><span class="p">);</span> <span class="c1">// minfied output</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>The first parameter takes a JSON object of options and feature-detects to include. See <a href="lib/config-all.json"><code>lib/config-all.json</code></a> for all available options.</p>
+
+<p>The second parameter is a function invoked on task completion.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT license</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/Tshegofatso" class="avatar"><img src="https://avatars3.githubusercontent.com/u/6089074?v=2&amp;s=60" width="48" height="48"></a> <a href="https://github.com/Tshegofatso">Tshegofatso</a> maintains <a href="https://github.com/Tshegofatso/Modernizr">BosoStudios Modernizer</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/Tshegofatso/Modernizr/tarball/master" class="tar">tar</a><a href="https://github.com/Tshegofatso/Modernizr/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-50100558-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+</body>
+</html>
